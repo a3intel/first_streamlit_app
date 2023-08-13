@@ -32,8 +32,8 @@ streamlit.text("Fruit List:")
 streamlit.dataframe(my_data_row)
 
 
-2choice = streamlit.text_input('What would you like to add ?')
-2my_fruit_list = my_data_row.set_index()
-2fruits_selected = streamlit.multiselect("Pick some fruits:", list(2my_fruit_list.index))
-2fruits_to_show = 2my_fruit_list.loc[2fruits_selected]
-streamlit.write('Fruit Selected :', 2fruits_to_show)
+choice2 = streamlit.text_input('What would you like to add ?')
+my_fruit_list2 = my_data_row.set_index()
+fruits_selected2 = streamlit.multiselect("Pick some fruits:", list(my_fruit_list2.index))
+fruits_to_show2 = 2my_fruit_list.loc[fruits_selected2]
+streamlit.write('Fruit Selected :', fruits_to_show2)
