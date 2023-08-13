@@ -23,7 +23,8 @@ streamlit.write('Fruit Selected :', choice)
 response = requests.get("https://fruityvice.com/api/fruit/" + choice)
 streamlit.dataframe(pandas.json_normalize(response.json()))
 
-
+streamlit.stop()
+import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")
