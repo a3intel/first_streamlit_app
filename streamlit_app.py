@@ -36,4 +36,4 @@ choice2 = streamlit.text_input('What would you like to add ?')
 my_fruit_list2 = my_data_row
 fruits_selected2 = streamlit.multiselect("Pick some fruits:", list(my_fruit_list2))
 streamlit.write('Fruit Selected :', fruits_selected2)
-my_cur.execute("Insert into fruit_load_list values ('from streamlit'")
+my_cur.execute("Insert into fruit_load_list values ('from streamlit')")
