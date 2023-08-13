@@ -18,4 +18,5 @@ streamlit.dataframe(fruits_to_show)
 
 
 response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(response.json())
+
+streamlit.dateframe(pandas.json_normalize(requests.get("https://fruityvice.com/api/fruit/watermelon")))
