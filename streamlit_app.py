@@ -2,7 +2,7 @@ import streamlit
 import pandas
 import requests
 import snowflake.connector
-from urllib.error import URLErrror
+from urllib.error import URLError
 
 
 streamlit.title(' 🥣 My Parents new healthy diner')
@@ -18,11 +18,15 @@ fruits_selected = streamlit.multiselect("Pick som efruits:", list(my_fruit_list.
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
-
-choice = streamlit.text_input('What fruit you need info on ?','Kiwi')
-streamlit.write('Fruit Selected :', choice)
+try:
+choice = streamlit.text_input('What fruit you need info on ?')
+if not choice:
+  streamlit.error('Please select')
+else
 response = requests.get("https://fruityvice.com/api/fruit/" + choice)
 streamlit.dataframe(pandas.json_normalize(response.json()))
+except URLError as e:
+ streamlit.error()
 
 streamlit.stop()
 
