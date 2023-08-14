@@ -20,7 +20,7 @@ streamlit.dataframe(fruits_to_show)
 
 def getfrutiInfo(furit):
      response = requests.get("https://fruityvice.com/api/fruit/" + choice)
-     return streamlit.dataframe(pandas.json_normalize(response.json()))
+     return pandas.json_normalize(response.json())
 try:
   choice = streamlit.text_input('What fruit you need info on ?')
   if not choice:
