@@ -48,7 +48,7 @@ if streamlit.button('Get Fruit List'):
 #fruits_selected2 = streamlit.multiselect("Pick some fruits:", list(my_fruit_list2))
 #streamlit.write('Fruit Selected :', fruits_selected2)
 
- my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
- my_cur = my_cnx.cursor()
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
 my_cur.execute("Insert into fruit_load_list values ('from streamlit')")
 my_cur.execute("Insert into fruit_load_list values ('from jackfruit'),('papaya'),('kiwi'),('guava')")
