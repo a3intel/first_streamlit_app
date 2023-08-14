@@ -19,14 +19,14 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 try:
-choice = streamlit.text_input('What fruit you need info on ?')
-if not choice:
-  streamlit.error('Please select')
-else
-response = requests.get("https://fruityvice.com/api/fruit/" + choice)
-streamlit.dataframe(pandas.json_normalize(response.json()))
+  choice = streamlit.text_input('What fruit you need info on ?')
+  if not choice:
+    streamlit.error('Please select')
+  else:
+    response = requests.get("https://fruityvice.com/api/fruit/" + choice)
+    streamlit.dataframe(pandas.json_normalize(response.json()))
 except URLError as e:
- streamlit.error()
+     streamlit.error()
 
 streamlit.stop()
 
